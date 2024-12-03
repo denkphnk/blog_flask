@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Главная</title>
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <form action="/addNote">
+        <h1>Ваши записки</h1>
+        <input type="submit" value="Добавить">
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th class="id">Номер</th>
+            <th class="text">Текст</th>
+            <th class="update">Редактирование</th>
+        </tr>
+        {% for i, note in (notes) %}
+        <tr>
+            <td class="id">{{i+1}}</td>
+            <td class="text">{{note.text}}</td>
+            <td class="update"><a href="{{url_for('deleteNote', id=note.id)}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

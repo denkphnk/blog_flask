@@ -1,0 +1,35 @@
+body {
+    font-size: 20px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+table {
+    width: 1000px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.update, .id {
+    width: 25%;
+}
+
+.note_form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.note_add {
+    width: 75px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}

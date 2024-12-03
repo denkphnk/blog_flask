@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Добавить запись</title>
+{% endblock %}
+
+{% block content %}
+<form action="/addNote" class="note_form" method="post">
+    <p><label for="text"><h1>Текст записки</h1></label></p>
+    <textarea name="text" class="note_text" cols=40 rows=7></textarea>
+    <br>
+    <input type="submit" value="Добавить" class="note_add">
+</form>
+{% endblock %}

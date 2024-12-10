@@ -1,8 +1,10 @@
 import sqlite3 as sq
 from flask import Flask, render_template, url_for, g, session, request
 from FDataBase import FDataBase
+from forms import addNoteForm
 
 DATABASE = 'to_do.db'
+SECRET_KEY = '423hjk534ghjk52190&()'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -27,13 +29,13 @@ def index():
 def addNote():
     db = connect_db()
     dbase = FDataBase(db)
-    if request.method == 'POST':
-        print(1)
-        if len(request.form['text']) > 5 and request.form['text'] not in [x[1] for x in dbase.getNotes()]:
-            dbase.addNote(request.form['text'])
-        else:
-            print('Неврный формат записи')
-    return render_template('addNote.html')
+    form = addNoteForm()
+    if form.validate_on_submit():
+        dbase.addNote(form.textarea.data)
+        return index()
+    else:
+        print('Неврный формат записи')
+    return render_template('addNote.html', form=form)
 
 @app.route('/deleteNote<int:id>')
 def deleteNote(id):

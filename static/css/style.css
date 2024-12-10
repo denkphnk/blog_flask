@@ -25,7 +25,7 @@ table, th, td {
     justify-content: center;
 }
 
-.note_add {
+#submit {
     width: 75px;
     margin: 0 auto;
 }

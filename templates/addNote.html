@@ -6,9 +6,10 @@
 
 {% block content %}
 <form action="/addNote" class="note_form" method="post">
+    {{form.hidden_tag()}}
     <p><label for="text"><h1>Текст записки</h1></label></p>
-    <textarea name="text" class="note_text" cols=40 rows=7></textarea>
+    {{form.textarea()}}
     <br>
-    <input type="submit" value="Добавить" class="note_add">
+    {{form.submit()}}
 </form>
 {% endblock %}
